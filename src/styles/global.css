@@ -1,0 +1,69 @@
+:root{
+  --bg: #fdfdfd;
+  --ink: #000000;
+  --muted: #6b7280; /* gray-500 */
+  --border: #000000; /* pure black 1px lines */
+}
+
+html{ scrollbar-gutter: stable both-edges; }
+
+/* Type */
+h1,h2,h3,h4{
+  font-family: "Press Start 2P", "SFMono-Regular", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-weight: 700; letter-spacing: 0.02em;
+}
+body, button, a, p{
+  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, "Noto Sans", "Helvetica Neue", sans-serif;
+  color: var(--ink); background: var(--bg);
+  margin: 0;
+}
+
+.text-muted{ color: var(--muted); }
+
+/* 1px bordered, square buttons that black-out on hover */
+.mini-btn{
+  position: relative; display:inline-flex; align-items:center; justify-content:center; gap:.5rem;
+  text-decoration:none; user-select:none; cursor:pointer;
+  border:1px solid var(--border); padding:.5rem .9rem; font-size:.78rem; line-height:1;
+  letter-spacing:.04em; text-transform:uppercase; color:var(--ink);
+  background:transparent; border-radius:0; overflow:hidden;
+}
+.mini-btn::after{ content:""; position:absolute; inset:0; background:#000; opacity:0; transition:opacity .1s linear; z-index:-1; pointer-events:none; }
+.mini-btn:hover::after, .mini-btn:focus-visible::after{ opacity:1; }
+/* Hover is full-black, label hidden; active = white label */
+.mini-btn:hover, .mini-btn:focus-visible{ color:transparent; border-color:var(--border); background:#000; }
+.mini-btn[aria-current="true"]{ color:#fff; border-color:var(--border); background:#000; }
+.mini-btn[aria-current="true"]::after{ opacity:1; }
+.mini-btn > *{ position:relative; z-index:1; }
+
+/* Card style: square, 1px border, no shadows */
+.card{
+  border:1px solid var(--border); border-radius:0; background:#fff;
+  will-change: transform; transform: translateZ(0); backface-visibility:hidden;
+}
+.card:hover{ background:#f7f7f7; }
+/* Ensure closed cards show pointer and block selection */
+.card{ user-select:none; cursor:pointer; }
+.card.expanded{ background:#fff; user-select:text; cursor:auto; }
+
+/* Expanded content visibility */
+.card-body{ display:none; }
+.card.expanded .card-body{ display:block; }
+
+/* Header stickiness */
+.hd{ border-bottom:1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index:20; }
+
+/* Links */
+.link{ border-bottom:1px solid var(--border); text-underline-offset:2px; }
+
+/* Sibling-only blur */
+:root{ --card-blur: 4px; }
+.cards[data-active="true"] .card:not(.expanded){ filter: blur(var(--card-blur)); }
+
+/* Containment to avoid text jitter after layout */
+.cards{ contain: layout paint; }
+
+/* Utilities */
+.container{ max-width: 72rem; margin: 0 auto; padding: 0 1rem; }
+.center{text-align:center}
+footer{ border-top:1px solid var(--border); }
