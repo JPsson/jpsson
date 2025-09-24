@@ -9,10 +9,7 @@ export function Header({ section, go }: { section: Section, go: (s: Section)=>vo
           <button className="mini-btn" onClick={() => go("about")} aria-current={section==="about"}>ABOUT</button>
           <button className="mini-btn" onClick={() => go("contact")} aria-current={section==="contact"}>CONTACT</button>
         </nav>
-        <div className="header-actions" aria-hidden="true">
-          <span />
-          <span />
-        </div>
+        <div className="header-spacer" aria-hidden="true" />
       </div>
     </header>
   )

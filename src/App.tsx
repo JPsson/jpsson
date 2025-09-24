@@ -79,6 +79,19 @@ export default function App(){
         </section>
       </main>
 
+      <AnimatePresence>
+        {activeId && (
+          <motion.div
+            key="close-catch"
+            className="close-catcher"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setActiveId(null)}
+          />
+        )}
+      </AnimatePresence>
+
       <footer className="site-footer">
         <div className="container">
           © {new Date().getFullYear()} JP • React + Framer Motion • Minimal mode
