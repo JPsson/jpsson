@@ -15,7 +15,7 @@ export function PanelCard({
     <motion.div
       key={item.id}
       layout
-      transition={{ layout: { duration: 0.24, ease: [0.2, 0.8, 0.2, 1] } }}
+      transition={{ layout: { duration: 0.20, ease: [0.2, 0.8, 0.2, 1] } }}
       onClick={() => { if (!isActive) { setActiveId(item.id); } }}
       ref={(el) => registerRef(item.id, el as HTMLElement | null)}
       className={`card${isActive ? ' expanded' : ''}`}
