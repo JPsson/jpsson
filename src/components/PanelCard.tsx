@@ -18,16 +18,16 @@ export function PanelCard({
       transition={{ layout: { duration: 0.24, ease: [0.2, 0.8, 0.2, 1] } }}
       onClick={() => { if (!isActive) { setActiveId(item.id); } }}
       ref={(el) => registerRef(item.id, el as HTMLElement | null)}
-      className={`card relative w-full p-4 text-left ${isActive ? 'expanded z-30' : 'cursor-pointer'}`}
+      className={`card${isActive ? ' expanded' : ''}`}
     >
-      <div className="space-y-1">
-        <h3 className="text-sm leading-tight" style={{fontFamily:'"Press Start 2P", monospace'}}>{item.title}</h3>
-        <p className="text-muted text-[11px]">{item.subtitle}</p>
+      <div className="card-header">
+        <h3 className="card-title">{item.title}</h3>
+        <p className="card-subtitle">{item.subtitle}</p>
       </div>
-      <div className="absolute right-2 top-2 text-xs">{isActive ? '✕' : '→'}</div>
+      <div className="card-toggle" aria-hidden="true">{isActive ? '✕' : '→'}</div>
 
       {/* Expanded content shown inline */}
-      <div className="card-body mt-4">
+      <div className="card-body">
         <ExpandedContent>{item.body}</ExpandedContent>
       </div>
     </motion.div>

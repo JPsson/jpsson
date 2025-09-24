@@ -54,19 +54,19 @@ export default function App(){
   const registerRef = (id: CardId, el: HTMLElement | null) => { cardRefs.current[id] = el }
 
   return (
-    <div className="relative min-h-screen" onClickCapture={onRootClickCapture}>
+    <div className="app-shell" onClickCapture={onRootClickCapture}>
       <Header section={section} go={go} />
 
-      <main className="container">
-        <section className="center" style={{paddingTop:'3.5rem', paddingBottom:'4rem'}}>
-          <h1 className="text-3xl sm:text-4xl">JPSSON / EXE</h1>
-          <p className="mt-3 text-muted">Square UI. 1px borders. No noise.</p>
+      <main className="container main-content">
+        <section className="hero">
+          <h1>JPSSON / EXE</h1>
+          <p className="text-muted">Square UI. 1px borders. No noise.</p>
         </section>
 
-        <section style={{paddingBottom:'4rem'}}>
+        <section className="cards-section">
           <motion.div
             layout
-            className={`cards grid gap-3 sm:gap-4 mx-auto justify-center grid-cols-1 sm:grid-cols-[560px]`}
+            className="cards"
             data-active={activeId ? 'true' : 'false'}
           >
             {VISIBLE_ITEMS.map(item => {
@@ -79,8 +79,10 @@ export default function App(){
         </section>
       </main>
 
-      <footer className="container" style={{padding:'2.5rem 1rem', textAlign:'center', fontSize:'12px', color:'var(--muted)', borderTop:'1px solid var(--border)'}}>
-        © {new Date().getFullYear()} JP • React + Framer Motion • Minimal mode
+      <footer className="site-footer">
+        <div className="container">
+          © {new Date().getFullYear()} JP • React + Framer Motion • Minimal mode
+        </div>
       </footer>
     </div>
   )
