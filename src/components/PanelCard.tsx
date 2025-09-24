@@ -22,7 +22,9 @@ export function PanelCard({
     >
       <div className="card-header">
         <h3 className="card-title">{item.title}</h3>
-        <p className="card-subtitle">{item.subtitle}</p>
+        {item.subtitle ? (
+          <p className="card-subtitle">{item.subtitle}</p>
+        ) : null}
       </div>
       <div className="card-toggle" aria-hidden="true">{isActive ? '✕' : '→'}</div>
 
