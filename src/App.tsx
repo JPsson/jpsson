@@ -54,25 +54,31 @@ export default function App(){
   const registerRef = (id: CardId, el: HTMLElement | null) => { cardRefs.current[id] = el }
 
   return (
-    <div className="app-shell" onClickCapture={onRootClickCapture}>
+    <div className="relative min-h-screen bg-bg" onClickCapture={onRootClickCapture}>
       <Header section={section} go={go} />
 
-      <main className="container main-content">
-        <section className="hero">
-          <h1>JPSSON / EXE</h1>
-          <p className="text-muted">Square UI. 1px borders. No noise.</p>
+      <main className="mx-auto max-w-5xl px-4 pb-16">
+        <section className="pt-14 pb-20 text-center">
+          <h1 className="text-[clamp(1.875rem,4vw,2.25rem)]">JPSSON / EXE</h1>
+          <p className="mt-3 text-sm text-muted">Square UI. 1px borders. No noise.</p>
         </section>
 
-        <section className="cards-section">
+        <section className="pb-16">
           <motion.div
             layout
-            className="cards"
-            data-active={activeId ? 'true' : 'false'}
+            className="mx-auto grid grid-cols-[min(100%,35rem)] justify-center gap-3 [contain:layout_paint] sm:gap-4"
           >
             {VISIBLE_ITEMS.map(item => {
               const isActive = activeId === item.id
               return (
-                <PanelCard key={item.id} item={item} isActive={isActive} setActiveId={setActiveId} registerRef={registerRef} />
+                <PanelCard
+                  key={item.id}
+                  item={item}
+                  isActive={isActive}
+                  hasActive={Boolean(activeId)}
+                  setActiveId={setActiveId}
+                  registerRef={registerRef}
+                />
               )
             })}
           </motion.div>
@@ -83,7 +89,7 @@ export default function App(){
         {activeId && (
           <motion.div
             key="close-catch"
-            className="close-catcher"
+            className="fixed inset-0 z-10"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -92,8 +98,8 @@ export default function App(){
         )}
       </AnimatePresence>
 
-      <footer className="site-footer">
-        <div className="container">
+      <footer className="border-t border-border py-10 text-center text-xs text-muted">
+        <div className="mx-auto max-w-5xl px-4">
           © {new Date().getFullYear()} JP • React + Framer Motion • Minimal mode
         </div>
       </footer>
