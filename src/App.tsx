@@ -5,11 +5,31 @@ import { ITEMS } from './data/items'
 import type { CardId, Language } from './types'
 import { PanelCard } from './components/PanelCard'
 
+const SCANDINAVIAN_PREFIXES = ['sv', 'da', 'nb', 'nn', 'no'] as const
+
+const detectPreferredLanguage = (): Language => {
+  if (typeof window === 'undefined' || typeof navigator === 'undefined') {
+    return 'sv'
+  }
+
+  const navigatorLanguages = Array.isArray(navigator.languages) && navigator.languages.length > 0
+    ? navigator.languages
+    : [navigator.language]
+
+  const normalized = navigatorLanguages.map(code => (code || '').toLowerCase())
+
+  const hasScandinavianLocale = normalized.some(code =>
+    SCANDINAVIAN_PREFIXES.some(prefix => code.startsWith(prefix))
+  )
+
+  return hasScandinavianLocale ? 'sv' : 'en'
+}
+
 type Section = "projects" | "about" | "contact"
 
 export default function App(){
   const [activeId, setActiveId] = useState<CardId | null>(null)
-  const [language, setLanguage] = useState<Language>('en')
+  const [language, setLanguage] = useState<Language>(() => detectPreferredLanguage())
 
   const toggleLanguage = () => setLanguage(prev => prev === 'en' ? 'sv' : 'en')
 
