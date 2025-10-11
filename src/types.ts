@@ -1,9 +1,15 @@
+import { ReactNode } from 'react';
+
 export type CardId = "tool" | "exchange" | "boardgame" | "pos" | "about" | "contact";
+
+export type Language = "en" | "sv";
+
+export type Localized<T> = Record<Language, T>;
 
 export type Item = {
   id: CardId;
-  title: string;
-  subtitle?: string;
+  title: Localized<string>;
+  subtitle?: Localized<string>;
   href?: string;
-  body: JSX.Element;
+  body: Localized<ReactNode>;
 };

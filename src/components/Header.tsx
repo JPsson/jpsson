@@ -1,15 +1,37 @@
+import type { Language } from '../types'
+
 type Section = "projects" | "about" | "contact"
 
-export function Header({ section, go }: { section: Section, go: (s: Section)=>void }){
+export function Header({
+  section,
+  go,
+  labels,
+  language,
+  onToggleLanguage,
+}: {
+  section: Section,
+  go: (s: Section)=>void,
+  labels: Record<Section, string>,
+  language: Language,
+  onToggleLanguage: ()=>void,
+}){
   return (
     <header className="hd">
       <div className="container header-inner">
         <nav className="header-nav">
-          <button className="mini-btn" onClick={() => go("projects")} aria-current={section==="projects"}>PROJECTS</button>
-          <button className="mini-btn" onClick={() => go("about")} aria-current={section==="about"}>ABOUT</button>
-          <button className="mini-btn" onClick={() => go("contact")} aria-current={section==="contact"}>CONTACT</button>
+          <button className="mini-btn" onClick={() => go("projects")} aria-current={section==="projects"}>{labels.projects}</button>
+          <button className="mini-btn" onClick={() => go("about")} aria-current={section==="about"}>{labels.about}</button>
+          <button className="mini-btn" onClick={() => go("contact")} aria-current={section==="contact"}>{labels.contact}</button>
         </nav>
         <div className="header-spacer" aria-hidden="true" />
+        <button
+          type="button"
+          className="lang-toggle"
+          onClick={onToggleLanguage}
+          aria-label={`Switch language. Current: ${language.toUpperCase()}`}
+        >
+          {language.toUpperCase()}
+        </button>
       </div>
     </header>
   )
