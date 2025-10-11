@@ -12,12 +12,21 @@ export function PanelCard({
   setActiveId: (id: CardId | null)=>void,
   registerRef: (id: CardId, el: HTMLElement | null)=>void
 }){
+  const handleCardClick = (event: React.MouseEvent<HTMLDivElement>) => {
+    const interactive = (event.target as HTMLElement | null)?.closest('a,button')
+    if (interactive) return
+
+    if (!isActive) {
+      setActiveId(item.id)
+    }
+  }
+
   return (
     <motion.div
       key={item.id}
       layout
       transition={{ layout: { duration: 0.20, ease: [0.2, 0.8, 0.2, 1] } }}
-      onClick={() => { if (!isActive) { setActiveId(item.id); } }}
+      onClick={handleCardClick}
       ref={(el) => registerRef(item.id, el as HTMLElement | null)}
       className={`card${isActive ? ' expanded' : ''}`}
       aria-expanded={isActive}
