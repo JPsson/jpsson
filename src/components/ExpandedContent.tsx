@@ -1,19 +1,26 @@
 import React from 'react'
+import type { InfoCard } from '../types'
 
-export default function ExpandedContent({ children }: { children: React.ReactNode }) {
+export default function ExpandedContent({
+  children,
+  infoCards,
+}: {
+  children: React.ReactNode,
+  infoCards?: InfoCard[],
+}) {
   return (
     <div className="expanded-content">
       {children}
-      <div className="info-grid">
-        <div className="info-card">
-          <h4>Why squares?</h4>
-          <p>Crisp geometry, simple hierarchy, zero ornamental effects.</p>
+      {infoCards && infoCards.length > 0 && (
+        <div className="info-grid">
+          {infoCards.map((card, index) => (
+            <div className="info-card" key={index}>
+              {card.title && <h4>{card.title}</h4>}
+              <p>{card.body}</p>
+            </div>
+          ))}
         </div>
-        <div className="info-card">
-          <h4>Performance</h4>
-          <p>Only one overlay at a time. Animations are minimal and fast.</p>
-        </div>
-      </div>
+      )}
     </div>
   );
 }

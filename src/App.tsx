@@ -2,13 +2,45 @@ import { useEffect, useMemo, useRef, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Header } from './components/Header'
 import { ITEMS } from './data/items'
-import type { CardId } from './types'
+import type { CardId, Language } from './types'
 import { PanelCard } from './components/PanelCard'
 
 type Section = "projects" | "about" | "contact"
 
 export default function App(){
   const [activeId, setActiveId] = useState<CardId | null>(null)
+  const [language, setLanguage] = useState<Language>('en')
+
+  const toggleLanguage = () => setLanguage(prev => prev === 'en' ? 'sv' : 'en')
+
+  const TEXT = {
+    header: {
+      projects: {
+        en: 'PROJECTS',
+        sv: 'PROJEKT',
+      },
+      about: {
+        en: 'ABOUT',
+        sv: 'OM',
+      },
+      contact: {
+        en: 'CONTACT',
+        sv: 'KONTAKT',
+      },
+    },
+    heroTitle: {
+      en: 'JPSSON / EXE',
+      sv: 'JPSSON / EXE',
+    },
+    heroSubtitle: {
+      en: 'Square UI. 1px borders. No noise.',
+      sv: 'Kvadratisk UI. 1 px-kanter. Inget brus.',
+    },
+    footer: {
+      en: (year: number) => `© ${year} JP • React + Framer Motion • Minimal mode`,
+      sv: (year: number) => `© ${year} JP • React + Framer Motion • Minimalt läge`,
+    },
+  }
 
   // Close on ESC
   useEffect(() => {
@@ -55,12 +87,22 @@ export default function App(){
 
   return (
     <div className="app-shell" onClickCapture={onRootClickCapture}>
-      <Header section={section} go={go} />
+      <Header
+        section={section}
+        go={go}
+        labels={{
+          projects: TEXT.header.projects[language],
+          about: TEXT.header.about[language],
+          contact: TEXT.header.contact[language],
+        }}
+        language={language}
+        onToggleLanguage={toggleLanguage}
+      />
 
       <main className="container main-content">
         <section className="hero">
-          <h1>JPSSON / EXE</h1>
-          <p className="text-muted">Square UI. 1px borders. No noise.</p>
+          <h1>{TEXT.heroTitle[language]}</h1>
+          <p className="text-muted">{TEXT.heroSubtitle[language]}</p>
         </section>
 
         <section className="cards-section">
@@ -72,7 +114,14 @@ export default function App(){
             {VISIBLE_ITEMS.map(item => {
               const isActive = activeId === item.id
               return (
-                <PanelCard key={item.id} item={item} isActive={isActive} setActiveId={setActiveId} registerRef={registerRef} />
+                <PanelCard
+                  key={item.id}
+                  item={item}
+                  isActive={isActive}
+                  language={language}
+                  setActiveId={setActiveId}
+                  registerRef={registerRef}
+                />
               )
             })}
           </motion.div>
@@ -94,7 +143,7 @@ export default function App(){
 
       <footer className="site-footer">
         <div className="container">
-          © {new Date().getFullYear()} JP • React + Framer Motion • Minimal mode
+          {TEXT.footer[language](new Date().getFullYear())}
         </div>
       </footer>
     </div>
