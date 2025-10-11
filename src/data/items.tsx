@@ -81,6 +81,28 @@ export const ITEMS: Item[] = [
         </div>
       ),
     },
+    infoCards: {
+      en: [
+        {
+          title: "Stack",
+          body: "Electron shell with React + TypeScript UI around ffmpeg pipelines.",
+        },
+        {
+          title: "Status",
+          body: "Actively maintained for personal archiving sessions each month.",
+        },
+      ],
+      sv: [
+        {
+          title: "Teknik",
+          body: "Electron-skal med React och TypeScript runt ffmpeg-flöden.",
+        },
+        {
+          title: "Status",
+          body: "Under löpande underhåll för egna arkiveringspass varje månad.",
+        },
+      ],
+    },
   },
   {
     id: "exchange",
@@ -137,6 +159,28 @@ export const ITEMS: Item[] = [
         </div>
       ),
     },
+    infoCards: {
+      en: [
+        {
+          title: "Scope",
+          body: "Handles Exchange Online and on-prem via remote PowerShell sessions.",
+        },
+        {
+          title: "Safety",
+          body: "Dry-run switches and CSV logs make rollback steps straightforward.",
+        },
+      ],
+      sv: [
+        {
+          title: "Omfång",
+          body: "Hanterar Exchange Online och lokala miljöer via fjärr-PowerShell-sessioner.",
+        },
+        {
+          title: "Säkerhet",
+          body: "Testkörningsflaggor och CSV-loggar gör återställning enkel.",
+        },
+      ],
+    },
   },
   {
     id: "boardgame",
@@ -190,6 +234,28 @@ export const ITEMS: Item[] = [
           </a>
         </div>
       ),
+    },
+    infoCards: {
+      en: [
+        {
+          title: "Tech",
+          body: "Built with WPF + C# to keep layout pixel-tight on Windows.",
+        },
+        {
+          title: "Extras",
+          body: "Includes house-rule variants, local leaderboards, and night mode.",
+        },
+      ],
+      sv: [
+        {
+          title: "Teknik",
+          body: "Byggt med WPF och C# för pixelperfekt layout på Windows.",
+        },
+        {
+          title: "Bonus",
+          body: "Innehåller husregler, lokala topplistor och nattläge.",
+        },
+      ],
     },
   },
   {
@@ -245,6 +311,28 @@ export const ITEMS: Item[] = [
         </div>
       ),
     },
+    infoCards: {
+      en: [
+        {
+          title: "Hardware",
+          body: "Optimized for touchscreen Windows tablets with big tap targets.",
+        },
+        {
+          title: "Reporting",
+          body: "Exports nightly Z-reports to CSV and prints receipts on demand.",
+        },
+      ],
+      sv: [
+        {
+          title: "Hårdvara",
+          body: "Optimerad för pekskärmsplattor på Windows med stora tryckytor.",
+        },
+        {
+          title: "Rapportering",
+          body: "Exporterar nattliga Z-rapporter till CSV och skriver ut kvitton vid behov.",
+        },
+      ],
+    },
   },
   {
     id: "about",
@@ -291,6 +379,28 @@ export const ITEMS: Item[] = [
           </p>
         </div>
       ),
+    },
+    infoCards: {
+      en: [
+        {
+          title: "Inspiration",
+          body: "Guided by brutalist web references from the early 2000s.",
+        },
+        {
+          title: "Credits",
+          body: "Set in Press Start 2P + system fonts; hosted on a static Vite build.",
+        },
+      ],
+      sv: [
+        {
+          title: "Inspiration",
+          body: "Inspirerad av brutalistiska webbplatser från tidigt 2000-tal.",
+        },
+        {
+          title: "Krediter",
+          body: "Använder Press Start 2P och systemtypsnitt; hostas som statiskt Vite-bygge.",
+        },
+      ],
     },
   },
   {
@@ -342,6 +452,28 @@ export const ITEMS: Item[] = [
           </div>
         </div>
       ),
+    },
+    infoCards: {
+      en: [
+        {
+          title: "Timezone",
+          body: "Based in CET (UTC+1) with typical availability 09–18.",
+        },
+        {
+          title: "Response",
+          body: "Expect replies within a day; faster on email.",
+        },
+      ],
+      sv: [
+        {
+          title: "Tidszon",
+          body: "Bas i CET (UTC+1) med tillgänglighet 09–18.",
+        },
+        {
+          title: "Svarstid",
+          body: "Räkna med svar inom ett dygn; snabbast via e-post.",
+        },
+      ],
     },
   },
 ]

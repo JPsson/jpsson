@@ -32,7 +32,9 @@ export function PanelCard({
 
       {/* Expanded content shown inline */}
       <div className="card-body">
-        <ExpandedContent>{item.body[language]}</ExpandedContent>
+        <ExpandedContent infoCards={item.infoCards?.[language]}>
+          {item.body[language]}
+        </ExpandedContent>
       </div>
     </motion.div>
   )

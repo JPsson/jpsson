@@ -19,14 +19,31 @@ export function Header({
     <header className="hd">
       <div className="container header-inner">
         <nav className="header-nav">
-          <button className="mini-btn" onClick={() => go("projects")} aria-current={section==="projects"}>{labels.projects}</button>
-          <button className="mini-btn" onClick={() => go("about")} aria-current={section==="about"}>{labels.about}</button>
-          <button className="mini-btn" onClick={() => go("contact")} aria-current={section==="contact"}>{labels.contact}</button>
+          <button
+            className="mini-btn"
+            onClick={() => go("projects")}
+            aria-current={section==="projects"}
+          >
+            {labels.projects}
+          </button>
+          <button
+            className="mini-btn"
+            onClick={() => go("about")}
+            aria-current={section==="about"}
+          >
+            {labels.about}
+          </button>
+          <button
+            className="mini-btn"
+            onClick={() => go("contact")}
+            aria-current={section==="contact"}
+          >
+            {labels.contact}
+          </button>
         </nav>
-        <div className="header-spacer" aria-hidden="true" />
         <button
           type="button"
-          className="lang-toggle"
+          className="mini-btn mini-btn--compact lang-toggle"
           onClick={onToggleLanguage}
           aria-label={`Switch language. Current: ${language.toUpperCase()}`}
         >
