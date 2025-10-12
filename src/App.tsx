@@ -61,8 +61,8 @@ export default function App(){
       sv: 'Minimal UI, No noise.',
     },
     footer: {
-      en: (year: number) => `© ${year} JPsson • React + Framer Motion`,
-      sv: (year: number) => `© ${year} JPsson • React + Framer Motion`,
+      en: (year: number) => `© ${year} Jakob Pettersson • React + Framer Motion`,
+      sv: (year: number) => `© ${year} Jakob Pettersson • React + Framer Motion`,
     },
   }
 

@@ -268,7 +268,7 @@ export const ITEMS: Item[] = [
         body: "C# .NET console application. Separation between domain, services, and UI layers. Interfaces for dice, scoring, and display logic for testing and extension.",
       },
       {
-        title: "Patterns",
+        title: "Design Patterns",
         body: "Implements Dependency Injection, Strategy, Observer, Generics, Collections, Lambdas, and LINQ with clear documentation and modular design.",
       },
       {
@@ -282,7 +282,7 @@ export const ITEMS: Item[] = [
         body: "C# .NET konsolapplikation. Uppdelning mellan domän, tjänster och UI-lager. Interfaces för tärning, poäng och visningslogik för enkel testning och utbyggnad.",
       },
       {
-        title: "Mönster",
+        title: "Design Patterns",
         body: "Implementerar Dependency Injection, Strategy, Observer, Generics, Collections, Lambdas och LINQ med tydlig dokumentation och modulär design.",
       },
       {
@@ -391,74 +391,75 @@ export const ITEMS: Item[] = [
     },
   },
   {
-    id: "about",
-    title: {
-      en: "About",
-      sv: "Om",
-    },
-    subtitle: {
-      en: "Site & project notes",
-      sv: "Anteckningar om sidan",
-    },
-    body: {
-      en: (
-        <div className="stack">
-          <h4>Layout</h4>
-          <p>
-            Square cards, 1px borders, no shadows. Motion stays minimal: card to
-            panel morphs and subtle fades only.
-          </p>
-          <h4>Typography</h4>
-          <p>
-            Monospace headings keep the interface crisp while body copy stays
-            warm and readable.
-          </p>
-          <p>
-            Spacing leans on equal gutters to keep the rhythm predictable.
-          </p>
-        </div>
-      ),
-      sv: (
-        <div className="stack">
-          <h4>Layout</h4>
-          <p>
-            Kvadratiska kort, 1 px-kanter och inga skuggor. Animationerna hålls
-            återhållsamma: endast formförändringen och mjuka toningar.
-          </p>
-          <h4>Typografi</h4>
-          <p>
-            Monospace-rubriker ger skärpa medan brödtexten förblir varm och
-            lättläst.
-          </p>
-          <p>
-            Luftiga och jämna mellanrum håller rytmen förutsägbar.
-          </p>
-        </div>
-      ),
-    },
-    infoCards: {
-      en: [
-        {
-          title: "Inspiration",
-          body: "Guided by brutalist web references from the early 2000s.",
-        },
-        {
-          title: "Credits",
-          body: "Set in Press Start 2P + system fonts; hosted on a static Vite build.",
-        },
-      ],
-      sv: [
-        {
-          title: "Inspiration",
-          body: "Inspirerad av brutalistiska webbplatser från tidigt 2000-tal.",
-        },
-        {
-          title: "Krediter",
-          body: "Använder Press Start 2P och systemtypsnitt; hostas som statiskt Vite-bygge.",
-        },
-      ],
-    },
+  id: "about",
+  title: {
+    en: "About",
+    sv: "Om",
   },
+  subtitle: {
+    en: "React + Vite portfolio with minimal UI design",
+    sv: "React + Vite portfölj med minimal gränssnittsdesign",
+  },
+  href: "https://github.com/JPsson/jpsson",
+  body: {
+    en: (
+      <div className="stack">
+        <p>
+          JPsson is a Portfolio website with the purpose of showcasing my ongoing personal projects as well as finished ones. The website illustrates my personal likings for clean visuals, responsiveness and minimalism design style.
+        </p>
+        <ul className="muted-list">
+          <li>React app bootstrapped with Vite for instant dev and fast builds</li>
+          <li>Framer Motion interactions and smooth transitions</li>
+          <li>Responsive, fast and minimal</li>
+        </ul>
+        <div className="mini-btn-group">
+          <a className="mini-btn" href="https://github.com/JPsson/jpsson" target="_blank" rel="noreferrer">
+            GITHUB ↗
+          </a>
+        </div>
+      </div>
+    ),
+    sv: (
+      <div className="stack">
+        <p>
+          JPsson är en webbsida vars syfte är att visa upp min portfölj med både pågående och färdiga personliga projekt. Webbplatsen speglar min personliga smak för avslappnade visuella intryck, responsivitet och minimalistisk design. 
+        </p>
+        <ul className="muted-list">
+          <li>React-app med Vite för snabb utvecklingsmöjligheter</li>
+          <li>Framer Motion för interaktioner och mjuka animationer</li>
+          <li>Responsiv, snabb och minimalistisk</li>
+        </ul>
+        <div className="mini-btn-group">
+          <a className="mini-btn" href="https://github.com/JPsson/jpsson" target="_blank" rel="noreferrer">
+            GITHUB ↗
+          </a>
+        </div>
+      </div>
+    ),
+  },
+  infoCards: {
+    en: [
+      {
+        title: "Stack",
+        body: "React with Vite and Framer Motion for animations. Deployed on a lightweight Node server behind Nginx.",
+      },
+      {
+        title: "Design Goals",
+        body: "Minimal visuals and quick scanability. Emphasis on intuitivness, clear typography, spacing and uniformity.",
+      },
+    ],
+    sv: [
+      {
+        title: "Stack",
+        body: "React med Vite samt Framer Motion för animationer. Driftsatt på en Node bakom Nginx.",
+      },
+      {
+        title: "Designmål",
+        body: "Minimalistiskt, lätt att få överblick och intuitiva animationer. Fokus på tydlig typografi, luft och enhetlighet.",
+      },
+    ],
+  },
+},
   {
     id: "contact",
     title: {
@@ -466,18 +467,16 @@ export const ITEMS: Item[] = [
       sv: "Kontakt",
     },
     subtitle: {
-      en: "Say hello",
-      sv: "Säg hej",
+      en: "About me",
+      sv: "Om mig",
     },
     body: {
       en: (
         <div className="stack">
-          <h4>Reach out</h4>
-          <p>Replace these with your real links.</p>
-          <h4>Channels</h4>
-          <p>Pick the platform that fits the message.</p>
+          <p>My name is Jakob Pettersson and I live in Uppsala. I hold a Bachelor’s degree in Information Systems: Systems Development, as well as several years of experience in the IT industry as an IT/CX Technician, Application Consultant and Quality Assurance within Game testing.</p>
+          <p>If you’d like to get in touch, feel free to send me an email or reach out on LinkedIn!</p>
           <div className="mini-btn-group">
-            <a className="mini-btn" href="mailto:hello@example.com">
+            <a className="mini-btn" href="mailto:jakob.pettersson01@gmail.com">
               EMAIL
             </a>
             <a
@@ -490,7 +489,7 @@ export const ITEMS: Item[] = [
             </a>
             <a
               className="mini-btn"
-              href="https://www.linkedin.com"
+              href="https://www.linkedin.com/in/jakob-pettersson-041b61183/"
               target="_blank"
               rel="noreferrer"
             >
@@ -501,13 +500,11 @@ export const ITEMS: Item[] = [
       ),
       sv: (
         <div className="stack">
-          <h4>Hör av dig</h4>
-          <p>Byt ut dessa mot dina riktiga länkar.</p>
-          <h4>Kanaler</h4>
-          <p>Välj plattform efter budskap.</p>
+          <p>Jakob Pettersson heter jag och är bosatt i Uppsala, har en kandidatexamen i Systemvetenskap: Systemutveckling. Samt flerårig efrarenhet inom IT-branschen som IT/CX-Tekniker, Spel- och Systemtestare samt Applikationskonsult.  </p>
+          <p>Vill du komma i kontakt med mig, skicka då gärna ett mail eller skriv på LinkedIn!</p>
           <div className="mini-btn-group">
             <a className="mini-btn" href="mailto:hello@example.com">
-              E-POST
+              EMAIL
             </a>
             <a
               className="mini-btn"
@@ -533,7 +530,7 @@ export const ITEMS: Item[] = [
       en: [
         {
           title: "Timezone",
-          body: "Based in CET (UTC+1) with typical availability 09–18.",
+          body: "Based in CET (UTC+1) with typical availability 08–17.",
         },
         {
           title: "Response",
@@ -543,11 +540,11 @@ export const ITEMS: Item[] = [
       sv: [
         {
           title: "Tidszon",
-          body: "Bas i CET (UTC+1) med tillgänglighet 09–18.",
+          body: "Uppsala, CET (UTC+1) med tillgänglighet primärt 08–17.",
         },
         {
           title: "Svarstid",
-          body: "Räkna med svar inom ett dygn; snabbast via e-post.",
+          body: "Räkna med svar inom ett dygn; snabbast via mail.",
         },
       ],
     },
