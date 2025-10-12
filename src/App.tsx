@@ -126,6 +126,18 @@ export default function App(){
         </section>
 
         <section className="cards-section">
+          <AnimatePresence>
+            {activeId && (
+              <motion.div
+                key="cards-blur"
+                className="cards-blur"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+              />
+            )}
+          </AnimatePresence>
+
           <motion.div
             layout
             className="cards"
@@ -145,18 +157,6 @@ export default function App(){
             })}
           </motion.div>
         </section>
-
-        <AnimatePresence>
-          {activeId && (
-            <motion.div
-              key="main-blur"
-              className="main-blur"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-            />
-          )}
-        </AnimatePresence>
       </main>
 
       <AnimatePresence>
