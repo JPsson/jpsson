@@ -267,7 +267,8 @@ main.main-content {
 
 .hero-title__label {
   display: inline-block;
-  min-width: var(--hero-label-width, 0ch);
+  width: var(--hero-label-width, auto);
+  min-width: var(--hero-label-width, auto);
   text-align: left;
 }
 
