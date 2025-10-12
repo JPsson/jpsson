@@ -230,7 +230,7 @@ main.main-content {
 }
 
 .cards {
-  contain: layout paint;
+  contain: layout;
   display: grid;
   gap: 0.75rem;
   margin: 0 auto;
@@ -242,6 +242,11 @@ main.main-content {
   .cards {
     gap: 1rem;
   }
+}
+
+.cards[data-active="true"] {
+  padding-block: calc(var(--card-blur) * 1.5);
+  margin-block: calc(var(--card-blur) * -1.5);
 }
 
 .card {
@@ -369,6 +374,7 @@ main.main-content {
   position: fixed;
   inset: 0;
   z-index: 10;
+  pointer-events: none;
 }
 
   font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, "Noto Sans", "Helvetica Neue", sans-serif;
@@ -564,7 +570,7 @@ main.main-content {
 }
 
 .cards {
-  contain: layout paint;
+  contain: layout;
   display: grid;
   gap: 0.75rem;
   margin: 0 auto;
@@ -576,6 +582,11 @@ main.main-content {
   .cards {
     gap: 1rem;
   }
+}
+
+.cards[data-active="true"] {
+  padding-block: calc(var(--card-blur) * 1.5);
+  margin-block: calc(var(--card-blur) * -1.5);
 }
 
 .cards[data-active="true"] .card:not(.expanded) {
@@ -698,4 +709,5 @@ main.main-content {
   position: fixed;
   inset: 0;
   z-index: 10;
+  pointer-events: none;
 }
