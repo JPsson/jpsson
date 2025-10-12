@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
+import type { CSSProperties, MouseEvent as ReactMouseEvent } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Header } from './components/Header'
 import { ITEMS } from './data/items'
@@ -55,10 +56,6 @@ export default function App(){
         sv: 'KONTAKT',
       },
     },
-    heroTitle: {
-      en: 'JPSSON / EXE',
-      sv: 'JPSSON / EXE',
-    },
     heroSubtitle: {
       en: 'Minimal UI <> No noise.',
       sv: 'Minimal UI <> No noise.',
@@ -109,13 +106,23 @@ export default function App(){
   }, [section])
 
   // Outside click close (but clicks on active card do not close)
-  const onRootClickCapture = (e: React.MouseEvent<HTMLDivElement>) => {
+  const onRootClickCapture = (e: ReactMouseEvent<HTMLDivElement>) => {
     if (!activeId || isLockedSection) return
     const node = cardRefs.current[activeId!]
     if (node && !node.contains(e.target as Node)) setActiveId(null)
   }
 
   const registerRef = (id: CardId, el: HTMLElement | null) => { cardRefs.current[id] = el }
+
+  const heroLabel = TEXT.header[section][language]
+
+  const heroLabelWidth = useMemo(() => {
+    const labels = Object.values(TEXT.header).flatMap(sectionLabels =>
+      Object.values(sectionLabels)
+    )
+
+    return labels.reduce((longest, current) => Math.max(longest, current.length), 0)
+  }, [])
 
   return (
     <div className="app-shell" onClickCapture={onRootClickCapture}>
@@ -133,7 +140,13 @@ export default function App(){
 
       <main className="container main-content">
         <section className="hero">
-          <h1>{TEXT.heroTitle[language]}</h1>
+          <h1
+            className="hero-title"
+            style={{ '--hero-label-width': `${heroLabelWidth}ch` } as CSSProperties}
+          >
+            <span className="hero-title__prefix">JPSSON&nbsp;/</span>
+            <span className="hero-title__label">{heroLabel}</span>
+          </h1>
           <p className="text-muted">{TEXT.heroSubtitle[language]}</p>
         </section>
 
