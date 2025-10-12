@@ -252,12 +252,29 @@ main.main-content {
 
 .hero h1 {
   margin: 0;
-  font-size: clamp(1.875rem, 4vw, 2.25rem);
+  font-size: clamp(2rem, 4vw, 2.25rem);
+}
+
+.hero-title {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 1ch;
+}
+
+.hero-title__prefix {
+  white-space: nowrap;
+}
+
+.hero-title__label {
+  display: inline-block;
+  width: var(--hero-label-width, auto);
+  min-width: var(--hero-label-width, auto);
+  text-align: left;
 }
 
 .hero p {
-  margin-top: 0.75rem;
-  font-size: 0.875rem;
+  margin-top: 0.5rem;
+  font-size: 0.75rem;
 }
 
 .cards-section {

@@ -1,4 +1,5 @@
-import { useEffect, useMemo, useRef, useState } from 'react'
+import { useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react'
+import type { CSSProperties, MouseEvent as ReactMouseEvent } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Header } from './components/Header'
 import { ITEMS } from './data/items'
@@ -55,19 +56,26 @@ export default function App(){
         sv: 'KONTAKT',
       },
     },
-    heroTitle: {
-      en: 'JPSSON / EXE',
-      sv: 'JPSSON / EXE',
-    },
     heroSubtitle: {
-      en: 'Minimal UI <> No noise.',
-      sv: 'Minimal UI <> No noise.',
+      en: 'Minimal UI, No noise.',
+      sv: 'Minimal UI, No noise.',
     },
     footer: {
       en: (year: number) => `© ${year} JPsson • React + Framer Motion`,
       sv: (year: number) => `© ${year} JPsson • React + Framer Motion`,
     },
   }
+
+  const heroLabelRef = useRef<HTMLSpanElement | null>(null)
+  const [heroLabelWidth, setHeroLabelWidth] = useState<number | null>(null)
+
+  const heroLabels = useMemo(
+    () =>
+      Object.values(TEXT.header).flatMap(sectionLabels =>
+        Object.values(sectionLabels)
+      ),
+    []
+  )
 
   // map of card refs to detect outside clicks without an overlay
   const cardRefs = useRef<Record<CardId, HTMLElement | null>>({
@@ -109,13 +117,49 @@ export default function App(){
   }, [section])
 
   // Outside click close (but clicks on active card do not close)
-  const onRootClickCapture = (e: React.MouseEvent<HTMLDivElement>) => {
+  const onRootClickCapture = (e: ReactMouseEvent<HTMLDivElement>) => {
     if (!activeId || isLockedSection) return
     const node = cardRefs.current[activeId!]
     if (node && !node.contains(e.target as Node)) setActiveId(null)
   }
 
   const registerRef = (id: CardId, el: HTMLElement | null) => { cardRefs.current[id] = el }
+
+  const heroLabel = TEXT.header[section][language]
+
+  useLayoutEffect(() => {
+    if (typeof window === 'undefined') return
+    const node = heroLabelRef.current
+    if (!node || heroLabels.length === 0) return
+
+    const computedStyle = window.getComputedStyle(node)
+    const measureNode = document.createElement('span')
+    measureNode.style.position = 'absolute'
+    measureNode.style.visibility = 'hidden'
+    measureNode.style.whiteSpace = 'nowrap'
+    measureNode.style.pointerEvents = 'none'
+    measureNode.style.fontFamily = computedStyle.fontFamily
+    measureNode.style.fontSize = computedStyle.fontSize
+    measureNode.style.fontWeight = computedStyle.fontWeight
+    measureNode.style.letterSpacing = computedStyle.letterSpacing
+    measureNode.style.fontStyle = computedStyle.fontStyle
+    measureNode.style.textTransform = computedStyle.textTransform
+
+    document.body.appendChild(measureNode)
+
+    let maxWidth = 0
+    for (const label of heroLabels) {
+      measureNode.textContent = label
+      const { width } = measureNode.getBoundingClientRect()
+      if (width > maxWidth) {
+        maxWidth = width
+      }
+    }
+
+    document.body.removeChild(measureNode)
+
+    setHeroLabelWidth(maxWidth)
+  }, [heroLabels])
 
   return (
     <div className="app-shell" onClickCapture={onRootClickCapture}>
@@ -133,7 +177,16 @@ export default function App(){
 
       <main className="container main-content">
         <section className="hero">
-          <h1>{TEXT.heroTitle[language]}</h1>
+          <h1
+            className="hero-title"
+            style={{
+              '--hero-label-width':
+                heroLabelWidth != null ? `${heroLabelWidth}px` : undefined,
+            } as CSSProperties}
+          >
+            <span className="hero-title__prefix">JPSSON&nbsp;/</span>
+            <span ref={heroLabelRef} className="hero-title__label">{heroLabel}</span>
+          </h1>
           <p className="text-muted">{TEXT.heroSubtitle[language]}</p>
         </section>
 
