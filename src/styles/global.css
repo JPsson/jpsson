@@ -136,7 +136,7 @@ p {
   background: #000;
   opacity: 0;
   transition: opacity 0.1s linear;
-  z-index: -1;
+  z-index: 1;
   pointer-events: none;
 }
 
@@ -164,7 +164,7 @@ p {
 
 .mini-btn > * {
   position: relative;
-  z-index: 1;
+  z-index: 0;
 }
 
 .mini-btn-group {

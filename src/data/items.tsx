@@ -30,7 +30,6 @@ export const ITEMS: Item[] = [
               href="https://yt2cd.se"
               target="_blank"
               rel="noreferrer"
-              onClick={(e) => e.stopPropagation()}
             >
               YT2CD.SE ↗
             </a>
@@ -39,7 +38,6 @@ export const ITEMS: Item[] = [
               href="https://github.com/JPsson/youtube-cd-maker"
               target="_blank"
               rel="noreferrer"
-              onClick={(e) => e.stopPropagation()}
             >
               OPEN REPOSITORY ↗
             </a>
@@ -64,7 +62,6 @@ export const ITEMS: Item[] = [
               href="https://yt2cd.se"
               target="_blank"
               rel="noreferrer"
-              onClick={(e) => e.stopPropagation()}
             >
               YT2CD.SE ↗
             </a>
@@ -73,7 +70,6 @@ export const ITEMS: Item[] = [
               href="https://github.com/JPsson/youtube-cd-maker"
               target="_blank"
               rel="noreferrer"
-              onClick={(e) => e.stopPropagation()}
             >
               ÖPPNA REPO ↗
             </a>
@@ -131,7 +127,6 @@ export const ITEMS: Item[] = [
             href="https://github.com/JPsson/exchange-mail-automation"
             target="_blank"
             rel="noreferrer"
-            onClick={(e) => e.stopPropagation()}
           >
             OPEN REPOSITORY ↗
           </a>
@@ -152,7 +147,6 @@ export const ITEMS: Item[] = [
             href="https://github.com/JPsson/exchange-mail-automation"
             target="_blank"
             rel="noreferrer"
-            onClick={(e) => e.stopPropagation()}
           >
             ÖPPNA REPO ↗
           </a>
@@ -208,7 +202,6 @@ export const ITEMS: Item[] = [
             href="https://github.com/JPsson/shut-the-box-boardgame"
             target="_blank"
             rel="noreferrer"
-            onClick={(e) => e.stopPropagation()}
           >
             OPEN REPOSITORY ↗
           </a>
@@ -228,7 +221,6 @@ export const ITEMS: Item[] = [
             href="https://github.com/JPsson/shut-the-box-boardgame"
             target="_blank"
             rel="noreferrer"
-            onClick={(e) => e.stopPropagation()}
           >
             ÖPPNA REPO ↗
           </a>
@@ -284,7 +276,6 @@ export const ITEMS: Item[] = [
             href="https://github.com/JPsson/bar-point-of-sale-system"
             target="_blank"
             rel="noreferrer"
-            onClick={(e) => e.stopPropagation()}
           >
             OPEN REPOSITORY ↗
           </a>
@@ -304,7 +295,6 @@ export const ITEMS: Item[] = [
             href="https://github.com/JPsson/bar-point-of-sale-system"
             target="_blank"
             rel="noreferrer"
-            onClick={(e) => e.stopPropagation()}
           >
             ÖPPNA REPO ↗
           </a>
