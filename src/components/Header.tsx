@@ -47,7 +47,9 @@ export function Header({
           onClick={onToggleLanguage}
           aria-label={`Switch language. Current: ${language.toUpperCase()}`}
         >
-          {language.toUpperCase()}
+          <span className="lang-toggle__primary">{language === "sv" ? "SV" : "EN"}</span>
+          <span aria-hidden className="lang-toggle__divider">/</span>
+          <span>{language === "sv" ? "EN" : "SV"}</span>
         </button>
       </div>
     </header>

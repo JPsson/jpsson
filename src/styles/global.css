@@ -114,9 +114,19 @@ p {
 }
 
 .lang-toggle {
-  min-width: 2.75rem;
+  min-width: 1.75rem;
   justify-content: center;
   letter-spacing: 0.14em;
+}
+
+.lang-toggle__primary {
+  font-weight: 700;
+}
+
+.lang-toggle__divider {
+  display: inline-flex;
+  align-items: center;
+
 }
 
 /* Buttons */
@@ -230,7 +240,7 @@ main.main-content {
 }
 
 .cards {
-  contain: layout paint;
+  contain: layout;
   display: grid;
   gap: 0.75rem;
   margin: 0 auto;
@@ -369,6 +379,7 @@ main.main-content {
   position: fixed;
   inset: 0;
   z-index: 10;
+  pointer-events: none;
 }
 
   font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, "Noto Sans", "Helvetica Neue", sans-serif;
@@ -564,7 +575,7 @@ main.main-content {
 }
 
 .cards {
-  contain: layout paint;
+  contain: layout;
   display: grid;
   gap: 0.75rem;
   margin: 0 auto;
@@ -698,4 +709,5 @@ main.main-content {
   position: fixed;
   inset: 0;
   z-index: 10;
+  pointer-events: none;
 }
