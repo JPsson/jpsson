@@ -129,7 +129,6 @@ export default function App(){
           <motion.div
             layout
             className="cards"
-            data-active={activeId ? 'true' : 'false'}
           >
             {VISIBLE_ITEMS.map(item => {
               const isActive = activeId === item.id
@@ -146,6 +145,18 @@ export default function App(){
             })}
           </motion.div>
         </section>
+
+        <AnimatePresence>
+          {activeId && (
+            <motion.div
+              key="main-blur"
+              className="main-blur"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+            />
+          )}
+        </AnimatePresence>
       </main>
 
       <AnimatePresence>

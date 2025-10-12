@@ -13,8 +13,10 @@ export function PanelCard({
   registerRef: (id: CardId, el: HTMLElement | null)=>void
 }){
   const handleCardClick = (event: React.MouseEvent<HTMLDivElement>) => {
-    const interactive = (event.target as HTMLElement | null)?.closest('a,button')
-    if (interactive) return
+    const target = event.target as Node | null
+    if (target instanceof Element && target.closest('a,button')) {
+      return
+    }
 
     if (!isActive) {
       setActiveId(item.id)
