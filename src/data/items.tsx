@@ -134,7 +134,7 @@ export const ITEMS: Item[] = [
     sv: (
       <div className="stack">
         <p>
-          En lättviktig RPA-verktyg byggt med Electron som loggar in i Microsoft Exchange Admin Center och automatiserar att lägga till delade brevlådor till användare — utan API-åtkomst eller registrerad Azure-app.
+          En RPA-verktyg byggt med Electron som loggar in i Microsoft Exchange Admin Center och automatiserar processen att lägga till funktionsbrevlådor till användare — utan API-åtkomst eller registrerad Azure-app.
         </p>
         <ul className="muted-list">
           <li>Styr EAC-gränssnittet med Playwright (Chromium) för tillförlitlig automation</li>
@@ -191,8 +191,8 @@ export const ITEMS: Item[] = [
   {
   id: "boardgame",
   title: {
-    en: "Shut the Box Boardgame",
-    sv: "Shut the Box Boardgame",
+    en: "shut the Box Boardgame",
+    sv: "shut the Box Boardgame",
   },
   subtitle: {
     en: "Console-based C# board game with strong OOP architecture",
@@ -530,7 +530,7 @@ export const ITEMS: Item[] = [
       en: [
         {
           title: "Timezone",
-          body: "Based in CET (UTC+1) with typical availability 08–17.",
+          body: "Based in Uppsala, CET (UTC+1) with typical availability 08–17.",
         },
         {
           title: "Response",
