@@ -27,8 +27,15 @@ const detectPreferredLanguage = (): Language => {
 
 type Section = "projects" | "about" | "contact"
 
+function getSectionFromHash(): Section {
+  const h = (typeof window !== 'undefined' ? window.location.hash : "#projects").replace("#", "")
+  return (h === "about" || h === "contact") ? (h as Section) : "projects"
+}
+
 export default function App(){
-  const [activeId, setActiveId] = useState<CardId | null>(null)
+  const initialSection: Section = typeof window !== 'undefined' ? getSectionFromHash() : "projects"
+  const [section, setSection] = useState<Section>(initialSection)
+  const [activeId, setActiveId] = useState<CardId | null>(() => initialSection === "projects" ? null : initialSection)
   const [language, setLanguage] = useState<Language>(() => detectPreferredLanguage())
 
   const toggleLanguage = () => setLanguage(prev => prev === 'en' ? 'sv' : 'en')
@@ -53,41 +60,46 @@ export default function App(){
       sv: 'JPSSON / EXE',
     },
     heroSubtitle: {
-      en: 'Square UI. 1px borders. No noise.',
-      sv: 'Kvadratisk UI. 1 px-kanter. Inget brus.',
+      en: 'Minimal UI <> No noise.',
+      sv: 'Minimal UI <> No noise.',
     },
     footer: {
-      en: (year: number) => `© ${year} JP • React + Framer Motion • Minimal mode`,
-      sv: (year: number) => `© ${year} JP • React + Framer Motion • Minimalt läge`,
+      en: (year: number) => `© ${year} JPsson • React + Framer Motion`,
+      sv: (year: number) => `© ${year} JPsson • React + Framer Motion`,
     },
   }
-
-  // Close on ESC
-  useEffect(() => {
-    const onKey = (e: KeyboardEvent) => { if (e.key === "Escape") setActiveId(null) }
-    window.addEventListener("keydown", onKey)
-    return () => window.removeEventListener("keydown", onKey)
-  }, [])
-
-  const activeItem = useMemo(() => ITEMS.find(i => i.id === activeId) || null, [activeId])
 
   // map of card refs to detect outside clicks without an overlay
   const cardRefs = useRef<Record<CardId, HTMLElement | null>>({
     tool: null, exchange: null, boardgame: null, pos: null, about: null, contact: null,
   })
 
-  // Simple hash routing
-  const getSectionFromHash = (): Section => {
-    const h = (window.location.hash || "#projects").replace("#", "")
-    return (h === "about" || h === "contact") ? (h as Section) : "projects"
-  }
-  const [section, setSection] = useState<Section>(getSectionFromHash())
   useEffect(() => {
     const onHash = () => setSection(getSectionFromHash())
     window.addEventListener("hashchange", onHash)
     return () => window.removeEventListener("hashchange", onHash)
   }, [])
   const go = (s: Section) => { if (window.location.hash !== `#${s}`) window.location.hash = `#${s}`; else setSection(s) }
+
+  const isLockedSection = section !== "projects"
+
+  // Sync active card with the current section
+  useEffect(() => {
+    if (section === "projects") {
+      setActiveId(null)
+    } else {
+      setActiveId(section)
+    }
+  }, [section])
+
+  // Close on ESC (only when cards are allowed to collapse)
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape" && !isLockedSection) setActiveId(null)
+    }
+    window.addEventListener("keydown", onKey)
+    return () => window.removeEventListener("keydown", onKey)
+  }, [isLockedSection])
 
   // Only show items for the current section
   const VISIBLE_ITEMS = useMemo(() => {
@@ -98,7 +110,7 @@ export default function App(){
 
   // Outside click close (but clicks on active card do not close)
   const onRootClickCapture = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!activeId) return
+    if (!activeId || isLockedSection) return
     const node = cardRefs.current[activeId!]
     if (node && !node.contains(e.target as Node)) setActiveId(null)
   }
@@ -141,6 +153,7 @@ export default function App(){
                   language={language}
                   setActiveId={setActiveId}
                   registerRef={registerRef}
+                  showToggle={section === 'projects'}
                 />
               )
             })}
@@ -149,7 +162,7 @@ export default function App(){
       </main>
 
       <AnimatePresence>
-        {activeId && (
+        {activeId && !isLockedSection && (
           <motion.div
             key="close-catch"
             className="close-catcher"
