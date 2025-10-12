@@ -4,13 +4,14 @@ import type { Item, CardId, Language } from '../types'
 import React from 'react'
 
 export function PanelCard({
-  item, isActive, language, setActiveId, registerRef
+  item, isActive, language, setActiveId, registerRef, showToggle
 }: {
   item: Item,
   isActive: boolean,
   language: Language,
   setActiveId: (id: CardId | null)=>void,
-  registerRef: (id: CardId, el: HTMLElement | null)=>void
+  registerRef: (id: CardId, el: HTMLElement | null)=>void,
+  showToggle: boolean,
 }){
   const handleCardClick = (event: React.MouseEvent<HTMLDivElement>) => {
     const interactive = (event.target as HTMLElement | null)?.closest('a,button')
@@ -37,7 +38,9 @@ export function PanelCard({
           <p className="card-subtitle">{item.subtitle[language]}</p>
         )}
       </div>
-      <div className="card-toggle" aria-hidden="true">{isActive ? '✕' : '→'}</div>
+      {showToggle && (
+        <div className="card-toggle" aria-hidden="true">{isActive ? '✕' : '→'}</div>
+      )}
 
       {/* Expanded content shown inline */}
       <div className="card-body">

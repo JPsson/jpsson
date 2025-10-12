@@ -153,6 +153,7 @@ export default function App(){
                   language={language}
                   setActiveId={setActiveId}
                   registerRef={registerRef}
+                  showToggle={section === 'projects'}
                 />
               )
             })}
