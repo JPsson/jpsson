@@ -411,14 +411,24 @@ export const ITEMS: Item[] = [
           <h4>Channels</h4>
           <p>Pick the platform that fits the message.</p>
           <div className="mini-btn-group">
-            <a className="mini-btn" href="#" onClick={(e) => { e.preventDefault(); e.stopPropagation(); }}>
+            <a className="mini-btn" href="mailto:hello@example.com">
               EMAIL
             </a>
-            <a className="mini-btn" href="#" onClick={(e) => { e.preventDefault(); e.stopPropagation(); }}>
-              GITHUB
+            <a
+              className="mini-btn"
+              href="https://github.com/JPsson"
+              target="_blank"
+              rel="noreferrer"
+            >
+              GITHUB ↗
             </a>
-            <a className="mini-btn" href="#" onClick={(e) => { e.preventDefault(); e.stopPropagation(); }}>
-              LINKEDIN
+            <a
+              className="mini-btn"
+              href="https://www.linkedin.com"
+              target="_blank"
+              rel="noreferrer"
+            >
+              LINKEDIN ↗
             </a>
           </div>
         </div>
@@ -430,14 +440,24 @@ export const ITEMS: Item[] = [
           <h4>Kanaler</h4>
           <p>Välj plattform efter budskap.</p>
           <div className="mini-btn-group">
-            <a className="mini-btn" href="#" onClick={(e) => { e.preventDefault(); e.stopPropagation(); }}>
+            <a className="mini-btn" href="mailto:hello@example.com">
               E-POST
             </a>
-            <a className="mini-btn" href="#" onClick={(e) => { e.preventDefault(); e.stopPropagation(); }}>
-              GITHUB
+            <a
+              className="mini-btn"
+              href="https://github.com/JPsson"
+              target="_blank"
+              rel="noreferrer"
+            >
+              GITHUB ↗
             </a>
-            <a className="mini-btn" href="#" onClick={(e) => { e.preventDefault(); e.stopPropagation(); }}>
-              LINKEDIN
+            <a
+              className="mini-btn"
+              href="https://www.linkedin.com"
+              target="_blank"
+              rel="noreferrer"
+            >
+              LINKEDIN ↗
             </a>
           </div>
         </div>

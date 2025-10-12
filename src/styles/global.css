@@ -140,8 +140,7 @@ p {
   pointer-events: none;
 }
 
-.mini-btn:hover::after,
-.mini-btn:focus-visible::after {
+.mini-btn:hover::after {
   opacity: 1;
 }
 
@@ -156,10 +155,6 @@ p {
   color: #fff;
   border-color: var(--border);
   background: #000;
-}
-
-.mini-btn[aria-current="true"]::after {
-  opacity: 1;
 }
 
 .mini-btn > * {
