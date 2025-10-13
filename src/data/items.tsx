@@ -134,7 +134,7 @@ export const ITEMS: Item[] = [
     sv: (
       <div className="stack">
         <p>
-          En RPA-verktyg byggt med Electron som loggar in i Microsoft Exchange Admin Center och automatiserar processen att lägga till funktionsbrevlådor till användare — utan API-åtkomst eller registrerad Azure-app.
+          Ett RPA-verktyg byggt med Electron som loggar in i Microsoft Exchange Admin Center och automatiserar processen att lägga till funktionsbrevlådor till användare — utan API-åtkomst eller registrerad Azure-app.
         </p>
         <ul className="muted-list">
           <li>Styr EAC-gränssnittet med Playwright (Chromium) för tillförlitlig automation</li>
@@ -397,15 +397,15 @@ export const ITEMS: Item[] = [
     sv: "Om",
   },
   subtitle: {
-    en: "React + Vite portfolio with minimal UI design",
-    sv: "React + Vite portfölj med minimal gränssnittsdesign",
+    en: "React portfolio with a minimal interface",
+    sv: "React portfölj med minimal gränssnittsdesign",
   },
   href: "https://github.com/JPsson/jpsson",
   body: {
     en: (
       <div className="stack">
         <p>
-          JPsson is a Portfolio website with the purpose of showcasing my ongoing personal projects as well as finished ones. The website illustrates my personal likings for clean visuals, responsiveness and minimalism design style.
+          JPsson is a Portfolio website with the purpose of showcasing my ongoing projects as well as finished ones. The website illustrates my personal likings for clean visuals, responsiveness and minimalism design style.
         </p>
         <ul className="muted-list">
           <li>React app bootstrapped with Vite for instant dev and fast builds</li>
@@ -422,7 +422,7 @@ export const ITEMS: Item[] = [
     sv: (
       <div className="stack">
         <p>
-          JPsson är en webbsida vars syfte är att visa upp min portfölj med både pågående och färdiga personliga projekt. Webbplatsen speglar min personliga smak för avslappnade visuella intryck, responsivitet och minimalistisk design. 
+          JPsson är en webbsida vars syfte är att visa upp min portfölj med både pågående och färdiga projekt. Webbplatsen speglar min personliga smak för avslappnade visuella intryck, responsivitet och minimalistisk design. 
         </p>
         <ul className="muted-list">
           <li>React-app med Vite för snabb utvecklingsmöjligheter</li>
@@ -503,7 +503,7 @@ export const ITEMS: Item[] = [
           <p>Jakob Pettersson heter jag och är bosatt i Uppsala, har en kandidatexamen i Systemvetenskap: Systemutveckling. Samt flerårig efrarenhet inom IT-branschen som IT/CX-Tekniker, Spel- och Systemtestare samt Applikationskonsult.  </p>
           <p>Vill du komma i kontakt med mig, skicka då gärna ett mail eller skriv på LinkedIn!</p>
           <div className="mini-btn-group">
-            <a className="mini-btn" href="mailto:hello@example.com">
+            <a className="mini-btn" href="mailto:jakob.pettersson01@gmail.com">
               EMAIL
             </a>
             <a
@@ -516,7 +516,7 @@ export const ITEMS: Item[] = [
             </a>
             <a
               className="mini-btn"
-              href="https://www.linkedin.com"
+              href="https://www.linkedin.com/in/jakob-pettersson-041b61183/"
               target="_blank"
               rel="noreferrer"
             >
