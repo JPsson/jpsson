@@ -4,12 +4,12 @@ export const ITEMS: Item[] = [
   {
     id: "tool",
     title: {
-      en: "youTube → CD-R",
-      sv: "youTube → CD-R",
+      en: "YT2CD.SE",
+      sv: "YT2CD.SE",
     },
     subtitle: {
-      en: "Convert YT videos to MP3/WAV and burn to CD-R",
-      sv: "Konvertera YT-klipp till MP3/WAV och bränn till CD-R",
+      en: "Convert YT videos to MP3/WAV and burn to CD",
+      sv: "Konvertera YT-klipp till MP3/WAV och bränn till CD",
     },
     href: "https://github.com/JPsson/youtube-cd-maker",
     body: {
@@ -134,7 +134,7 @@ export const ITEMS: Item[] = [
     sv: (
       <div className="stack">
         <p>
-          Ett RPA-verktyg byggt med Electron som loggar in i Microsoft Exchange Admin Center och automatiserar processen att lägga till funktionsbrevlådor till användare — utan API-åtkomst eller registrerad Azure-app.
+          Ett RPA-verktyg byggt med Electron som loggar in i Microsoft Exchange Admin Center och automatiserar processen att lägga till funktionsbrevlådor till användare utan API-åtkomst eller registrerad Azure-app.
         </p>
         <ul className="muted-list">
           <li>Styr EAC-gränssnittet med Playwright (Chromium) för tillförlitlig automation</li>
@@ -425,7 +425,7 @@ export const ITEMS: Item[] = [
           JPsson är en webbsida vars syfte är att visa upp min portfölj med både pågående och färdiga projekt. Webbplatsen speglar min personliga smak för avslappnade visuella intryck, responsivitet och minimalistisk design. 
         </p>
         <ul className="muted-list">
-          <li>React-app med Vite för snabb utvecklingsmöjligheter</li>
+          <li>React-app med Vite för snabba utvecklingsmöjligheter</li>
           <li>Framer Motion för interaktioner och mjuka animationer</li>
           <li>Responsiv, snabb och minimalistisk</li>
         </ul>

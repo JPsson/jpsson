@@ -39,7 +39,7 @@ export function PanelCard({
         )}
       </div>
       {showToggle && (
-        <div className="card-toggle" aria-hidden="true">{isActive ? '✕' : '→'}</div>
+        <div className="card-toggle" aria-hidden="true">{isActive ? '' : '→'}</div>
       )}
 
       {/* Expanded content shown inline */}
